@@ -1,12 +1,15 @@
-import "./App.css";
+import "./App.scss";
 import * as React from "react";
 import FirstTable from "./components/FirstTable";
+import ModalTest from "./components/ModalTest";
 
 function App() {
 
   return (
     <div className="App">
-      <FirstTable></FirstTable>
+      <h1>Padel Tournament</h1>
+      <ModalTest/>
+      <FirstTable/>
     </div>
   );
 }

@@ -1,38 +1,38 @@
 import * as React from "react";
 import { useTable } from "react-table";
+import { useState } from "react";
+import "./FirstTable.scss"
 
 function FirstTable() {
-
   const customData = [
     {
-        "first_name":"Pampli",
+        "name":"Pampli",
         "category":"A",
     },
     {
-        "first_name":"Alba",
+        "name":"Alba",
         "category":"B",
     },
     {
-        "first_name":"Albert",
+        "name":"Albert",
         "category":"C",
     }];
-  const data = React.useMemo(() => customData, []);
-  const columns = React.useMemo(
-    () => [
+    const customColumns = [
       {
-        Header: "First Name",
-        accessor: "first_name",
+        Header: "Nom",
+        accessor: "name",
       },
       {
         Header: "Category",
         accessor: "category",
       }
-    ],
-    []
-  );
+    ];
+  const [dataWorking, setDataWorking] = useState(customData);
+  const [columnsWorking, setColumnsWorking] = useState(customColumns);
+
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    useTable({ columns:columnsWorking, data:dataWorking });
 
   return (
     <div className="table-container">
