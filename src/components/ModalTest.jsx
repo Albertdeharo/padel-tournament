@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -9,6 +10,8 @@ function ModalTest() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const state = useSelector((state) => state);
+  console.log(state.cart, 'state cart from modal')
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -22,7 +25,7 @@ function ModalTest() {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Name  {state.cart.numOfItems}</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Nombre del jugador"
